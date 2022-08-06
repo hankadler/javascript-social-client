@@ -1,0 +1,132 @@
+.ConversationCard {
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr fit-content(100%);
+  border: 1px solid gainsboro;
+  border-radius: .3em;
+  height: fit-content;
+}
+
+.ConversationCard p {
+  font-family: Roboto-Regular, serif;
+}
+
+.ConversationCard:hover {
+  box-shadow: dimgray 0 2px 4px;
+}
+
+.ConversationCard aside {
+  padding: .5em;
+  width: 160px;
+  background-color: whitesmoke;
+}
+
+.AvatarContainer {
+  display: grid;
+  grid-template-columns: repeat(2, fit-content(100%));
+  justify-content: center;
+  align-content: center;
+}
+
+.ConversationCard main {
+  display: grid;
+  grid-template-rows: fit-content(100%) 1fr fit-content(100%);
+  grid-gap: .5em;
+  border-left: 1px solid gainsboro;
+  border-right: 1px solid gainsboro;
+  padding: .5em;
+}
+
+.ConversationCard main * {
+  margin: 0;
+}
+
+.ParticipantsContainer {
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr;
+  grid-gap: .5em;
+  align-content: end;
+}
+
+.ParticipantsContainer > p {
+  font-size: 1.125em;
+}
+
+.MessagePreviewContainer {
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr;
+  grid-gap: .5em;
+  align-content: end;
+}
+
+/*.MessagePreviewContainer * {*/
+/*  border: 1px solid red;*/
+/*}*/
+
+.Message {
+  height: 8em;
+}
+
+.BottomContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.MediaContainer {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.Ago {
+  z-index: 1;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  align-self: end;
+  margin: 0;
+  height: fit-content;
+  font-weight: lighter;
+  text-align: right;
+  color: gray;
+}
+
+.off, .on {
+  display: initial!important;
+  margin: 0!important;
+  padding: 0!important;
+  text-align: start!important;
+  /*
+    display: grid!important;
+    align-content: center!important;
+    justify-content: center!important;
+    margin: 1em!important;
+    border-radius: .5em!important;
+    width: 288px!important;
+    height: 288px!important;
+  */
+}
+
+.off:focus, .on:focus {
+  /*box-shadow: none;*/
+}
+
+.off {
+  /*border: 4px solid transparent!important;*/
+  /*box-shadow: none!important;*/
+}
+
+.off:hover {
+  /*box-shadow: dimgray 0 2px 4px!important;*/
+  /*border: 4px solid rgba(25, 75, 200, .25)!important;*/
+}
+
+.on {
+  z-index: 1;
+  border: 4px solid rgba(25, 75, 200, .25)!important;
+  background-color: rgba(0, 100, 255, .125)!important;
+}
+
+.New {
+  font-style: italic;
+  color: green;
+}

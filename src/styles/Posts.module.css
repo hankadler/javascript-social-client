@@ -1,0 +1,13 @@
+.Posts {
+  display: grid;
+  grid-gap: 1em;
+}
+
+.Alert {
+  border: 1px solid #ced4da!important;
+}
+
+.PostCards {
+  display: grid;
+  grid-gap: 1em;
+}

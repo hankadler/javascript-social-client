@@ -1,0 +1,36 @@
+.Thumbnail {
+  max-width: 280px;
+  max-height: 280px;
+}
+
+.unchecked, .checked {
+  display: grid!important;
+  align-content: center!important;
+  justify-content: center!important;
+  margin: 1em!important;
+  border-radius: .5em!important;
+  padding: 0!important;
+  width: 288px!important;
+  height: 288px!important;
+}
+
+.unchecked:focus, .checked:focus {
+  box-shadow: none;
+}
+
+.unchecked {
+  border: 4px solid transparent!important;
+  box-shadow: none!important;
+}
+
+.unchecked:hover {
+  box-shadow: dimgray 0 2px 4px!important;
+  /*border: 4px solid rgba(25, 75, 200, .25)!important;*/
+}
+
+.checked {
+  z-index: 1;
+  border: 4px solid rgba(25, 75, 200, .25)!important;
+  background-color: rgba(0, 100, 255, .125)!important;
+}
+

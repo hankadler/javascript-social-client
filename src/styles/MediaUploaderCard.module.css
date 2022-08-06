@@ -1,0 +1,24 @@
+.MediaUploaderCard {
+  display: grid;
+  grid-template-columns: fit-content(100%) 24em;
+  grid-gap: 1em;
+  margin: 1em;
+}
+
+.ImageContainer {
+  display: grid;
+  justify-content: center;
+  height: 15em!important;
+  width: 15em!important;
+  padding-left: 1.75em!important;
+}
+
+.Image {
+  height: 15em;
+  max-width: 15em;
+}
+
+.CaptionTextarea {
+  resize: none;
+  overflow-wrap: break-word;
+}

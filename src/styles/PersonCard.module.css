@@ -1,0 +1,40 @@
+.PersonCard {
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr fit-content(100%);
+  margin: 1em 0 0 0!important;
+  border: 1px solid #ced4da;
+  border-radius: .5em;
+  padding: 0!important;
+  height: fit-content;
+}
+
+.PersonCard:hover {
+  box-shadow: dimgray 0 2px 4px;
+}
+
+.ImageContainer {
+  display: grid;
+  justify-items: center;
+  padding: 1em;
+  width: 180px;
+  background-color: whitesmoke!important;
+}
+
+.Image {
+  max-height: 10em;
+}
+
+.TextContainer {
+  color: initial;
+}
+
+.TextContainer pre {
+  font-size: 1em;
+}
+
+.WatchContainer {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-color: whitesmoke;
+}

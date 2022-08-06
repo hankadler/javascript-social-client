@@ -1,0 +1,24 @@
+.Skeleton {
+  min-width: 320px!important;
+}
+
+.Navbar {
+  justify-content: center!important;
+  background-color: #36454F;
+}
+
+.Navbar * {
+  color: white!important;
+}
+
+.Nav {
+  display: grid;
+}
+
+.NavLink:hover {
+  text-decoration: underline;
+}
+
+.Content {
+  margin: 1em auto;
+}

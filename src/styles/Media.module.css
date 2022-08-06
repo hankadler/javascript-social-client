@@ -1,0 +1,24 @@
+.Media {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.MediaGrid {
+  text-align: justify-all;
+}
+
+.MediaGrid button {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  margin: 1em;
+  padding: 0;
+  width: 288px;
+  height: 288px;
+}
+
+@media (max-width: 768px) {
+  .MediaGrid {
+    grid-auto-flow: row;
+  }
+}

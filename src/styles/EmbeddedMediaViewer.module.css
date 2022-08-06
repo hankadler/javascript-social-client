@@ -1,0 +1,27 @@
+.EmbeddedMediaViewer {
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr fit-content(100%);
+  grid-gap: .5em;
+  justify-items: center;
+  align-items: center;
+}
+
+.PrevContainer {
+  justify-content: left;
+}
+
+.EmbeddedMediaViewer > main {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.EmbeddedMediaViewer > main > img {
+  justify-self: center;
+  align-self: center;
+  cursor: pointer;
+}
+
+.NextContainer {
+  justify-content: right;
+}

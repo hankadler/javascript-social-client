@@ -1,0 +1,26 @@
+.MediaViewer {
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr fit-content(100%);
+  grid-gap: 1em;
+  align-content: center;
+  justify-content: center;
+  border-radius: .3em;
+  background-color: white;
+}
+
+.MediaViewer main > img {
+  max-width: 996px;
+  max-height: 768px;
+}
+
+.MediaViewer button {
+  align-self: center;
+  border-radius: .5em;
+  text-align: center;
+  height: fit-content;
+  width: fit-content;
+}
+
+.MediaViewer button:hover {
+  box-shadow: dimgray 0 2px 4px;
+}

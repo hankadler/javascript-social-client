@@ -1,0 +1,44 @@
+.Toolbar {
+  display: grid;
+  grid-template-columns: repeat(4, fit-content(100%));
+  grid-gap: .5em;
+  justify-content: center;
+  width: fit-content;
+}
+
+.ToolbarButtonGroup {
+  display: grid;
+  grid-template-columns: repeat(3, fit-content(100%));
+  grid-gap: .5em;
+}
+
+.TagContainer {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: .5em;
+  border: 1px solid #ced4da;
+  border-radius: .5em;
+}
+
+.TagOutput {
+  border: none!important;
+  width: 9em!important;
+}
+
+.TagItem {
+  display: grid!important;
+  grid-template-columns: 1fr fit-content(100%)!important;
+  grid-gap: 1em;
+  align-items: center;
+}
+
+.TagInput {
+  margin-left: .8em;
+  width: 7em!important;
+}
+
+@media (max-width: 768px) {
+  .Toolbar {
+    grid-template-columns: max-content;
+  }
+}

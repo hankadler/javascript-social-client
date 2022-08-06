@@ -1,0 +1,71 @@
+.CommentCard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: .5em;
+  /*border: 1px solid #ced4da;*/
+  /*border-bottom: 1px solid black;*/
+  border-bottom: 1px solid #ced4da;
+  /*border-radius: .3em;*/
+  padding: .5em;
+}
+
+.CommentCard > header {
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr fit-content(100%);
+  grid-gap: .5em;
+  align-content: center;
+}
+
+.CommentCard > header > * {
+  align-self: center;
+  margin: 0;
+  padding: 0;
+}
+
+.CommentCard > header > img {
+  cursor: pointer;
+}
+
+.DropdownMenu {
+  -webkit-transform: translateX(-75%);
+  -ms-transform: translateX(-75%);
+  transform: translateX(-75%);
+}
+
+.CommentCard > main {
+  display: grid;
+  grid-gap: .5em;
+}
+
+.CommentCard > main img {
+  max-height: 200px!important;
+  max-width: 300px!important;
+}
+
+.CommentCard > main > textarea {
+  resize: none;
+  overflow-wrap: break-word;
+  margin: 0;
+  border: 1px solid #ced4da;
+  border-radius: .3em;
+  background-color: white;
+}
+
+.CommentCard > main > textarea:read-only {
+  border: none;
+  color: dimgray;
+  background-color: white;
+}
+
+.CommentCard pre {
+  margin: 0 .5em;
+}
+
+.CommentCard > footer > p {
+  z-index: 1;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0;
+  padding: 0;
+}

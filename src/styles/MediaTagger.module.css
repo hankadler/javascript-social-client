@@ -1,0 +1,27 @@
+.AlertButtonContainer * {
+  margin-right: .5em;
+}
+
+.AssignTagRow {
+  display: grid;
+  grid-template-columns: repeat(3, fit-content(100%));
+  grid-gap: .5em;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.AssignTagLabel {
+  display: grid;
+  align-self: end;
+}
+
+.dropItem {
+  margin: .25em .5em;
+}
+
+.grid1x2 {
+  display: grid;
+  grid-template-columns: 1fr fit-content(100%);
+  grid-gap: .5em;
+  margin: .25em .5em;
+}

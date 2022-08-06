@@ -1,0 +1,29 @@
+.Notice {
+  display: grid;
+  grid-auto-flow: column;
+  align-content: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.ImageContainer {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.ChildrenContainer {
+  display: grid;
+  align-content: center;
+}
+
+.bigFont {
+  font-size: 3em;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .Notice {
+    grid-auto-flow: row;
+  }
+}

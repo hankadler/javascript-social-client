@@ -1,0 +1,67 @@
+.PostCardNew * {
+  margin: 0;
+}
+
+.PostCardNew header {
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr fit-content(100%);
+  grid-gap: .5em;
+  align-content: center;
+  margin-bottom: .5em;
+}
+
+.Name {
+  margin: 0;
+  align-self: center;
+  font-size: 1.25em;
+}
+
+.MoreDropdownToggle {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.PostCardNew main {
+  display: grid;
+  grid-gap: .5em;
+}
+
+.MediaContainer {
+  text-align: center;
+  margin-bottom: .5em;
+}
+
+.MediaContainer * {
+  display: grid;
+}
+
+.MediaContainer img {
+  max-height: 320px!important;
+}
+
+.PostCardNew textarea {
+  resize: none;
+  overflow-wrap: break-word;
+  margin: 0 auto;
+}
+
+.PostCardNew textarea:read-only {
+  border: none;
+  padding: 0;
+  color: black;
+  background-color: transparent;
+}
+
+.label {
+  font-weight: lighter;
+  text-align: right;
+  color: gray;
+}
+
+.PostCardNew footer {
+  display: grid;
+  justify-content: center;
+}

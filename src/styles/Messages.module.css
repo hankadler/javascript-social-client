@@ -1,0 +1,12 @@
+.Messages {
+  display: grid;
+  grid-gap: 1em;
+}
+
+.Alert {
+  border: 1px solid #ced4da!important;
+}
+
+.AlertButtonContainer > * {
+  margin-right: .5em;
+}

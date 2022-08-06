@@ -1,0 +1,80 @@
+.ReactionToolbar {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1em;
+  justify-content: center;
+  align-content: center;
+  /*border: 1px solid #ced4da;*/
+  /*border-radius: .3em;*/
+  padding: .25em;
+  height: 5em;
+  /*background-color: whitesmoke;*/
+}
+
+.VoteContainer {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1em;
+}
+
+.TooltipHotspot {
+  z-index: 1;
+  position: absolute;
+  top: 0.1em;
+  left: 1.75em;
+  width: 2em;
+  height: 2em;
+  /*border: 1px solid red;*/
+}
+
+.Tooltip, .Tooltip > * {
+  padding: 0!important;
+  background-color: white!important;
+  min-width: fit-content;
+  min-height: fit-content;
+}
+
+.Tooltip [class$="inner"] {
+  padding-top: 1em!important;
+  /*margin-bottom: 1em;*/
+  border: 1px solid #ced4da;
+  border-radius: .3em;
+  color: black;
+}
+
+.Tooltip [class$="arrow"] {
+  display: none!important;
+}
+
+.UpVoteCount {
+  z-index: 1;
+  position: absolute;
+  top: -1.3em;
+  left: -.6em;
+  margin: 0;
+  padding: 0;
+  min-width: 4em;
+  text-align: center;
+  font-size: .9em;
+  color: green!important;
+}
+
+.DownVoteCount {
+  z-index: 1;
+  position: absolute;
+  bottom: -1.125em;
+  right: -.6em;
+  margin: 0;
+  padding: 0;
+  min-width: 4em;
+  text-align: center;
+  font-size: .9em;
+  color: red!important;
+}
+
+.mini {
+  -ms-transform: scale(0.75, 0.75); /* IE 9 */
+  -webkit-transform: scale(0.75, 0.75); /* Safari */
+  transform: scale(0.75, 0.75);
+}

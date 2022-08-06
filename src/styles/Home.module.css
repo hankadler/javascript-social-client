@@ -1,0 +1,18 @@
+.Home {
+  text-align: left;
+}
+
+.NavLink {
+  margin: .5em 0;
+  border-radius: .25em;
+  padding: .5em;
+  width: 10em;
+}
+
+.NavLink:hover {
+  text-decoration: underline;
+  background-color: #36454F;
+  /*background-color: #0d6efd;*/
+  /*background-color: #6c757d;*/
+  color: white!important;
+}

@@ -1,0 +1,5 @@
+.ConversationToolbar {
+  display: grid;
+  grid-template-columns: repeat(2, fit-content(100%)) 1fr;
+  grid-gap: 1em;
+}

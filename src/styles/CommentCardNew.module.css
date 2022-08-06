@@ -1,0 +1,60 @@
+.CommentCardNew { }
+
+.CommentCardNew > header {
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr;
+  grid-gap: .5em;
+  align-content: center;
+  margin-bottom: .5em;
+}
+
+.CommentCardNew > header > * {
+  align-self: center;
+  margin: 0;
+  padding: 0;
+}
+
+.CommentCardNew > main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: .5em;
+}
+
+.MediaContainer > * {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: .5em;
+}
+
+.MediaContainer img {
+  max-height: 200px!important;
+  max-width: 300px!important;
+}
+
+.TextContainer > textarea {
+  resize: none;
+  overflow-wrap: break-word;
+  margin: 0 auto;
+}
+
+.TextContainer > textarea:read-only {
+  border: none;
+  padding: 0;
+  color: black;
+  background-color: transparent;
+}
+
+.TextContainer > p {
+  margin: 0;
+}
+
+.label {
+  font-weight: lighter;
+  text-align: right;
+  color: gray;
+}
+
+.CommentCardNew footer {
+  display: grid;
+  justify-content: center;
+}

@@ -1,0 +1,32 @@
+.MediaUploader {
+  display: grid;
+  justify-content: center;
+  margin: 0 auto;
+  width: fit-content;
+  background-color: white;
+}
+
+.Header {
+  display: grid;
+  justify-content: center;
+  margin: 1em;
+}
+
+.Header > label {
+  width: 40em;
+  /*height: 10em;*/
+  max-width: none;
+}
+
+.Main {
+  display: grid;
+}
+
+.Footer {
+  display: grid;
+  justify-content: center;
+}
+
+.Footer button {
+  margin: 1em;
+}

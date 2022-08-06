@@ -1,0 +1,136 @@
+.PostCard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+  padding: 1em;
+  border: 1px solid #ced4da;
+  border-radius: .3em;
+}
+
+.PostCard > header {
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr fit-content(100%);
+  grid-gap: .5em;
+  align-content: center;
+}
+
+.PostCard > header > * {
+  align-self: center;
+  margin: 0;
+  padding: 0;
+}
+
+.PostCard > header > img {
+  cursor: pointer;
+}
+
+.PostCard > main {
+  display: grid;
+  grid-gap: .5em;
+}
+
+.TextContainer > textarea {
+  resize: none;
+  overflow-wrap: break-word;
+  border: 1px solid #ced4da;
+  border-radius: .3em;
+  background-color: white;
+}
+
+.TextContainer > textarea:read-only {
+  border: none;
+  color: dimgray;
+  background-color: transparent!important;
+}
+
+.TwoColContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 1em;
+  max-height: 360px;
+}
+
+.MediaViewerContainer {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr;
+}
+
+.MediaViewerContainer main > img {
+  max-height: 355px;
+}
+
+.CommentsContainer {
+  min-width: 320px;
+}
+
+.CommentsHeader {
+  display: grid;
+  grid-template-columns: repeat(2, fit-content(100%));
+  grid-gap: .5em;
+  align-content: center;
+  /*border-bottom: 1px solid black;*/
+  border-bottom: 1px solid #ced4da;
+  margin-bottom: .5em;
+}
+
+.CommentsHeader > h6 {
+  font-weight: bold;
+}
+
+.CommentsBody {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: .5em;
+  padding-right: .5em;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.PostCard > footer > p {
+  z-index: 1;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0;
+}
+
+.ModalMediaViewer {
+  /*border-radius: .3em;*/
+  /*background-color: white;*/
+}
+
+.ModalCommentCardNew {
+  display: grid;
+  border-radius: 1em;
+  padding: 1em;
+  width: 576px;
+  background-color: white;
+}
+
+.ModalCommentCardNew img {
+  max-height: 320px!important;
+}
+
+.badge {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: .25em;
+  border: 1px solid green;
+  border-radius: 50%;
+  padding: .25em;
+  width: 2em;
+  height: 2em;
+  font-family: monospace;
+  font-size: .7em;
+  font-weight: normal;
+  background-color: greenyellow;
+}
+
+@media (max-width: 992px) {
+  .TwoColContainer {
+    grid-template-columns: 1fr;
+    max-height: unset;
+  }
+}

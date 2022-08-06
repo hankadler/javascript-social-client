@@ -1,0 +1,13 @@
+.MediaUploadBox {
+  display: grid;
+  justify-items: center;
+  grid-gap: 1em;
+  border: 1px dashed darkgray;
+  border-radius: .33em;
+  padding: .5em;
+  cursor: pointer;
+}
+
+.MediaUploadBox p {
+  margin: 0;
+}

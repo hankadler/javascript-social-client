@@ -1,0 +1,7 @@
+.Pagination {
+  display: grid;
+  grid-template-columns: repeat(4, fit-content(100%));
+  grid-gap: 1em;
+  justify-content: center;
+  margin: 1em 0;
+}
