@@ -14,6 +14,7 @@ export default function Skeleton() {
     await signOut();
     reset();
     navigate("/");
+    window.location.reload(false); // todo: shutdown posts worker gracefully instead of this
   };
 
   return (
