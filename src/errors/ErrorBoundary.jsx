@@ -21,6 +21,7 @@ export default function ErrorBoundary({ children }) {
   const resetError = () => {
     reset();
     setError("");
+    window.location.reload(false); // temporary fix to rogue worker problem
   };
 
   useEffect(() => {
