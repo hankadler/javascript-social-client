@@ -5,6 +5,7 @@ import { v4 } from "uuid";
 import { Alert } from "react-bootstrap";
 import { getMessages } from "../services/messageService";
 import { patchConversation } from "../services/conversationService";
+import stopAllWorkers from "../utils/stopAllWorkers";
 import MessageToolbar from "./MessageToolbar";
 import MessageCardNew from "./MessageCardNew";
 import MessageCard from "./MessageCard";
@@ -42,26 +43,28 @@ export default function Messages({ ownerId, conversationId }) {
 
   // on mount
   useEffect(() => {
-    refreshMessages();
-    restartRefresher();
-    isMounted.current = true;
+    stopAllWorkers().then(() => {
+      refreshMessages();
+      restartRefresher();
+      isMounted.current = true;
+    });
   }, []);
 
-  // on unmount
-  useEffect(() => () => {
-    patchConversation(ownerId, conversationId, { hasNew: false })
-      .then(() => clearInterval(refresher.current)); // unset refresher
-  }, []);
-
-  // on showAdd change
+  // on change: showAdd
   useEffect(() => setAddDisabled(showAdd), [showAdd]);
 
-  // on messages change
+  // on change: messages
   useEffect(() => {
     setSearchDisabled(messages.length === 0);
     scrollToEnd();
     restartRefresher();
   }, [messages]);
+
+  // on unmount
+  useEffect(() => async () => {
+    await patchConversation(ownerId, conversationId, { hasNew: false });
+    await stopAllWorkers();
+  }, []);
 
   const onClickAdd = useCallback(async () => {
     setShowAdd(true);

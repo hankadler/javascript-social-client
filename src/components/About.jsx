@@ -16,13 +16,14 @@ const propTypes = {
 };
 
 export default function About({ isSelf, ownerId }) {
-  const isMounted = useRef(false);
+  const mounted = useRef(false);
   const defaultName = useRef("");
   const [image, setImage] = useState("");
   const [name, setName] = useState("");
   const [about, setAbout] = useState("");
   const [aboutCharCount, setAboutCharCount] = useState(0);
 
+  // on mount
   useEffect(() => {
     getUser(ownerId, "select=name,image,about")
       .then((user) => {
@@ -30,12 +31,12 @@ export default function About({ isSelf, ownerId }) {
         setName(user.name);
         setImage(user.image);
         setAbout(user.about);
-        isMounted.current = true;
+        mounted.current = true;
       });
   }, []);
 
   useEffect(() => {
-    if (isMounted.current && !name) {
+    if (mounted.current && !name) {
       setTimeout(() => setName(defaultName.current), 2000);
     }
   }, [name]);

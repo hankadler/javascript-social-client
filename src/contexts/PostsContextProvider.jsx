@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { createContext, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import _ from "lodash";
 import { getPosts } from "../services/postService";
+import stopAllWorkers from "../utils/stopAllWorkers";
 
 export const PostsContext = createContext(null);
 
@@ -39,7 +40,9 @@ export default function PostsContextProvider({ children }) {
   }, [posts]);
 
   // on unmount
-  useEffect(() => () => clearInterval(worker.current), []);
+  useEffect(() => async () => {
+    await stopAllWorkers();
+  }, []);
 
   const onClickAdd = useCallback(async () => setShowAddPost(true), []);
 

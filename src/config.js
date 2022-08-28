@@ -1,6 +1,6 @@
 const env = "dev";
 const api = "/social/api/v1";
-const showHttpLog = false;
+const showHttpLog = true;
 const charLimit = {
   about: 300,
   caption: 300,

@@ -18,7 +18,7 @@ const propTypes = {
 };
 
 export default function VoteStatus({ votes }) {
-  const isMounted = useRef(false);
+  const mounted = useRef(false);
   const [goodCount, setGoodCount] = useState(0);
   const [trueCount, setTrueCount] = useState(0);
   const [rightCount, setRightCount] = useState(0);
@@ -57,11 +57,11 @@ export default function VoteStatus({ votes }) {
       }
     });
     setHasCounted(true);
-    isMounted.current = true;
+    mounted.current = true;
   }, []);
 
   useEffect(() => {
-    if (isMounted.current) {
+    if (mounted.current) {
       setData([
         {
           why: "Good",
@@ -98,7 +98,7 @@ export default function VoteStatus({ votes }) {
     setMaxCount(Math.max(goodCount, trueCount, rightCount, badCount, falseCount, wrongCount));
   }, [hasCounted]);
 
-  return isMounted.current ? (
+  return mounted.current ? (
     <div className={css.VoteStatus}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart

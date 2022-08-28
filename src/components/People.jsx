@@ -6,11 +6,10 @@ import { getOthers } from "../services/userService";
 import Search from "./Search";
 import PersonCard from "./PersonCard";
 import Pagination from "./Pagination";
-// import * as css from "../styles/People.module.css";
 import stubImage from "../assets/stub.png";
 
 export default function People() {
-  const isMounted = useRef(false);
+  const mounted = useRef(false);
   const { selfId } = useAppContext();
   const [people, setPeople] = useState([]);
   const [page, setPage] = useState([]);
@@ -27,13 +26,13 @@ export default function People() {
     getOthers(selfId, "select=_id,name,image,about")
       .then((others) => {
         refresh(others);
-        isMounted.current = true;
+        mounted.current = true;
       });
   }, []);
 
   // on change people
   useEffect(() => {
-    if (isMounted.current) setSearchDisabled(people.length === 0);
+    if (mounted.current) setSearchDisabled(people.length === 0);
   }, [people]);
 
   const onSearch = useCallback(async () => {
@@ -52,7 +51,7 @@ export default function People() {
     <PersonCard key={v4()} ownerId={_id} image={image || stubImage} name={name} about={about} />
   )), [page]);
 
-  return isMounted.current ? (
+  return mounted.current ? (
     <div>
       <Search
         value={searchValue}

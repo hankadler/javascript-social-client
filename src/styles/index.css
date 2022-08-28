@@ -116,3 +116,14 @@ button:active {
 .display-none {
   display: none;
 }
+
+.activeNav {
+  /*color: rgb(200, 150, 150)!important;*/
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}

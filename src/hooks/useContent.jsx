@@ -37,7 +37,9 @@ export default function useContent() {
   });
 
   // on unmount
-  useEffect(() => () => clearInterval(agoWorker.current), []);
+  useEffect(() => async () => {
+    clearInterval(agoWorker.current);
+  }, []);
 
   const onChangeFiles = async (fileList) => {
     const blobs = Array.from(fileList);

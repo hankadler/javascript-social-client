@@ -4,6 +4,7 @@ import { Alert, Button } from "react-bootstrap";
 import useAppContext from "../hooks/useAppContext";
 import useConversationsContext from "../hooks/useConversationsContext";
 import { deleteConversations, getConversations } from "../services/conversationService";
+import stopAllWorkers from "../utils/stopAllWorkers";
 import ConversationToolbar from "./ConversationToolbar";
 import ConversationCardNew from "./ConversationCardNew";
 import ConversationCard from "./ConversationCard";
@@ -32,12 +33,14 @@ export default function Conversations() {
 
   // on mount
   useEffect(() => {
-    getConversations(selfId)
-      .then((_conversations) => {
-        setConversations(_conversations);
-        setMemoRefresh(true);
-        isMounted.current = true;
-      });
+    stopAllWorkers().then(() => {
+      getConversations(selfId)
+        .then((_conversations) => {
+          setConversations(_conversations);
+          setMemoRefresh(true);
+          isMounted.current = true;
+        });
+    });
   }, []);
 
   // on change conversations
@@ -72,10 +75,10 @@ export default function Conversations() {
   }, [areAllUnchecked]);
 
   // on unmount
-  useEffect(() => () => {
-    clearInterval(refresher.current);
+  useEffect(() => async () => {
     setShowAdd(false);
     setShowDelete(false);
+    await stopAllWorkers();
   }, []);
 
   const onClickAdd = useCallback(async () => {

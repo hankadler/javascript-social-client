@@ -14,30 +14,29 @@ const propTypes = {
 };
 
 export default function Media({ isSelf, ownerId }) {
-  const isMounted = useRef(false);
+  const mounted = useRef(false);
   const { alert, media, activeTag, setMedia, refreshMedia, refreshTags } = useMediaContext();
 
-  // set media on mount
+  // on mount
   useEffect(() => {
     refreshMedia(ownerId);
-    isMounted.current = true;
-
-    return () => {
-      setMedia([]);
-    };
+    mounted.current = true;
   }, []);
 
   // refresh tags on media change
   useEffect(() => {
-    if (isMounted.current) refreshTags();
+    if (mounted.current) refreshTags();
   }, [media]);
 
   // clear sessionStorage on alert close
   useEffect(() => {
-    if (isMounted.current) {
+    if (mounted.current) {
       if (!alert.shown) sessionStorage.clear();
     }
   }, [alert]);
+
+  // on unmount
+  useEffect(() => async () => setMedia([]), []);
 
   const mediaGrid = useMemo(() => (
     <Container className={css.MediaGrid}>

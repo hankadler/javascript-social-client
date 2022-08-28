@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
-import { createContext, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useEffect, useMemo, useState } from "react";
 import { Alert } from "react-bootstrap";
 import { getOtherIds, getUser } from "../services/userService";
+import stopAllWorkers from "../utils/stopAllWorkers";
 
 export const AppContext = createContext(null);
 
@@ -70,7 +71,7 @@ export default function AppContextProvider({ children }) {
 
   const isSelf = (userId) => selfId === userId;
 
-  const reset = () => {
+  const reset = useCallback(async () => {
     setSelfId("");
     setOtherIds([]);
     setShowModal(false);
@@ -78,7 +79,8 @@ export default function AppContextProvider({ children }) {
     setShowAlert(false);
     setAlertChild(null);
     setConversations([]);
-  };
+    await stopAllWorkers();
+  }, []);
 
   const value = useMemo(() => (
     {
