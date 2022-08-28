@@ -9,6 +9,6 @@ const charLimit = {
   message: 1200
 };
 const fileTypes = ["JPG", "PNG", "GIF"];
-const peoplePerPage = 20;
+const peoplePerPage = 5;
 
 export default { env, api, showHttpLog, charLimit, fileTypes, peoplePerPage };
