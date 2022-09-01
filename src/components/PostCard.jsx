@@ -113,7 +113,7 @@ function PostCard({ isSelf, ownerId, posts, setPosts, postId }) {
     setShowModal(true);
   };
 
-  return owner && post && comments ? (
+  return owner && author && post && comments ? (
     <div className={css.PostCard}>
       <header>
         <Image src={author.image} width={50} roundedCircle onClick={onClickAvatar} />
@@ -191,6 +191,7 @@ function PostCard({ isSelf, ownerId, posts, setPosts, postId }) {
         <ReactionToolbar
           ownerId={ownerId}
           postId={postId}
+          authorId={author._id}
           commentNode={(
             <div className={css.ModalCommentCardNew}>
               <CommentCardNew
