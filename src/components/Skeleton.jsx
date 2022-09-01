@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import useAppContext from "../hooks/useAppContext";
@@ -9,7 +9,9 @@ import * as css from "../styles/Skeleton.module.css";
 export default function Skeleton() {
   const { reset } = useAppContext();
   const navigate = useNavigate();
-  const navKey = useRef(window.location.pathname.split("/").filter((str) => str.length)[0]);
+  const [navKey, setNavKey] = useState(
+    window.location.pathname.split("/").filter((str) => str.length)[0]
+  );
 
   const onSignOut = async () => {
     await reset();
@@ -17,19 +19,19 @@ export default function Skeleton() {
   };
 
   const onSelectNav = async (key) => {
-    if (navKey.current !== key) {
+    if (navKey !== key) {
       await stopAllWorkers();
-      navKey.current = key;
+      setNavKey(key);
     }
   };
 
   return (
     <div className={css.Skeleton}>
       <Navbar className={css.Navbar} variant="">
-        <Nav defaultActiveKey={navKey.current || "home"} onSelect={onSelectNav}>
+        <Nav defaultActiveKey={navKey || "home"} onSelect={onSelectNav}>
           <Nav.Item>
             <Nav.Link
-              className={`${css.NavLink} ${navKey.current === "home" ? "activeNav" : ""}`}
+              className={`${css.NavLink} ${navKey === "home" ? "activeNav" : ""}`}
               onClick={() => navigate("/home")}
               eventKey="home"
             >
@@ -38,7 +40,7 @@ export default function Skeleton() {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link
-              className={`${css.NavLink} ${navKey.current === "people" ? "activeNav" : ""}`}
+              className={`${css.NavLink} ${navKey === "people" ? "activeNav" : ""}`}
               onClick={() => navigate("/people")}
               eventKey="people"
             >
@@ -47,7 +49,7 @@ export default function Skeleton() {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link
-              className={`${css.NavLink} ${navKey.current === "conversations" ? "activeNav" : ""}`}
+              className={`${css.NavLink} ${navKey === "conversations" ? "activeNav" : ""}`}
               onClick={() => navigate("/conversations")}
               eventKey="conversations"
             >
@@ -56,7 +58,7 @@ export default function Skeleton() {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link
-              className={`${css.NavLink} ${navKey.current === "latest" ? "activeNav" : ""}`}
+              className={`${css.NavLink} ${navKey === "latest" ? "activeNav" : ""}`}
               onClick={() => navigate("/latest")}
               eventKey="latest"
             >
