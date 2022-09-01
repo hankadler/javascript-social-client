@@ -98,17 +98,21 @@ function CommentCard({ ownerId, comments, setComments, fileId, postId, commentId
       <header>
         <Image src={author.image} width={50} roundedCircle onClick={onClickAvatar} />
         <h6>{author.name}</h6>
-        <Dropdown show={showMore} onToggle={onToggleMore}>
-          <Button className="icon" variant="" onClick={onClickMore}>
-            <Image src={moreIcon} width={16} height={16} />
-          </Button>
-          <Dropdown.Menu className={css.DropdownMenu}>
-            {selfId === author._id ? (
-              <Dropdown.Item onClick={onClickEdit}>Edit</Dropdown.Item>
-            ) : null}
-            <Dropdown.Item onClick={onDelete}>Delete</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        {selfId === author._id || selfId === ownerId ? (
+          <Dropdown show={showMore} onToggle={onToggleMore}>
+            <Button className="icon" variant="" onClick={onClickMore}>
+              <Image src={moreIcon} width={16} height={16} />
+            </Button>
+            <Dropdown.Menu className={css.DropdownMenu}>
+              {selfId === author._id ? (
+                <Dropdown.Item onClick={onClickEdit}>Edit</Dropdown.Item>
+              ) : null}
+              {selfId === ownerId ? (
+                <Dropdown.Item onClick={onDelete}>Delete</Dropdown.Item>
+              ) : null}
+            </Dropdown.Menu>
+          </Dropdown>
+        ) : null}
       </header>
       <main>
         {comment.message.media.length ? (
