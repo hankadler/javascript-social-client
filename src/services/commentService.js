@@ -57,7 +57,7 @@ export const getComments = async (userId, idByKey, query = "") => {
   const resource = await getResource(userId, fileId, postId, commentId);
   const { error, responseBody } = await GET(`${resource}?${query}`);
   if (error) throw error;
-  return responseBody.comments;
+  return responseBody.comments || [];
 };
 
 export const getCommentCount = async (userId, idByKey, query = " ") => {

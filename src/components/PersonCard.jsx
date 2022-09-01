@@ -5,6 +5,7 @@ import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import useAppContext from "../hooks/useAppContext";
 import { addToWatchlist, removeFromWatchlist } from "../services/userService";
+import stopAllWorkers from "../utils/stopAllWorkers";
 import * as css from "../styles/PersonCard.module.css";
 import watchIcon from "../assets/watch.png";
 import unwatchIcon from "../assets/unwatch.png";
@@ -36,7 +37,10 @@ function PersonCard({ ownerId, image, name, about }) {
     }
   }, [watched]);
 
-  const onClickImage = async () => navigate(`/people/${ownerId}`);
+  const onClickImage = async () => {
+    await stopAllWorkers();
+    navigate(`/people/${ownerId}`);
+  };
 
   const onChangeWatch = async (event) => setWatched(event.currentTarget.checked);
 

@@ -42,6 +42,7 @@ function PostCard({ isSelf, ownerId, posts, setPosts, postId }) {
     onChangeText
   } = useContent();
   const [owner, setOwner] = useState(null);
+  const [author, setAuthor] = useState(null);
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
 
@@ -53,7 +54,10 @@ function PostCard({ isSelf, ownerId, posts, setPosts, postId }) {
 
   const fetchPost = async () => {
     const _post = await getPost(ownerId, postId);
-    setPost(_post);
+    if (_post) {
+      setAuthor(await getUser(_post.content.authorId, "select=_id,name,image"));
+      setPost(_post);
+    }
     return _post;
   };
 
@@ -76,7 +80,9 @@ function PostCard({ isSelf, ownerId, posts, setPosts, postId }) {
   }, [posts]);
 
   // on change post
-  useEffect(() => { fetchComments().catch(); }, [post]);
+  useEffect(() => {
+    if (post) fetchComments().catch();
+  }, [post]);
 
   // on change showModal
   useEffect(() => setWorkerPaused(showModal), [showModal]); // todo: is this needed?
@@ -110,8 +116,8 @@ function PostCard({ isSelf, ownerId, posts, setPosts, postId }) {
   return owner && post && comments ? (
     <div className={css.PostCard}>
       <header>
-        <Image src={owner.image} width={50} roundedCircle onClick={onClickAvatar} />
-        <p>{owner.name}</p>
+        <Image src={author.image} width={50} roundedCircle onClick={onClickAvatar} />
+        <p>{author.name}</p>
         {isSelf ? (
           <Dropdown show={showMore} onToggle={onToggleMore}>
             <Button className="icon" variant="" onClick={onClickMore}>
@@ -148,9 +154,13 @@ function PostCard({ isSelf, ownerId, posts, setPosts, postId }) {
           )}
         </section>
 
-        <section className={comments.length ? css.TwoColContainer : css.MediaViewerContainer}>
+        <section
+          className={comments.length && post.content.media.length
+            ? css.TwoColContainer
+            : css.OneColContainer}
+        >
           {post.content.media.length ? (
-            <aside className={css.MediaViewerContainer}>
+            <aside className={css.OneColContainer}>
               <EmbeddedMediaViewer
                 sources={post.content.media.map(({ src }) => src)}
                 onClickImage={onClickImage} // todo: refactor inside

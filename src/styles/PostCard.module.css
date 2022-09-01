@@ -29,6 +29,11 @@
   grid-gap: .5em;
 }
 
+.TextContainer {
+  margin-left: .5em;
+  margin-bottom: .5em;
+}
+
 .TextContainer > textarea {
   resize: none;
   overflow-wrap: break-word;
@@ -50,13 +55,13 @@
   max-height: 360px;
 }
 
-.MediaViewerContainer {
+.OneColContainer {
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr;
 }
 
-.MediaViewerContainer main > img {
+.OneColContainer main > img {
   max-height: 355px;
 }
 

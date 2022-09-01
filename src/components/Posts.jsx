@@ -4,11 +4,11 @@ import { Alert } from "react-bootstrap";
 import { v4 } from "uuid";
 import usePostsContext from "../hooks/usePostsContext";
 import { getPosts } from "../services/postService";
+import stopAllWorkers from "../utils/stopAllWorkers";
 import PostToolbar from "./PostToolbar";
 import PostCardNew from "./PostCardNew";
 import PostCard from "./PostCard";
 import * as css from "../styles/Posts.module.css";
-import stopAllWorkers from "../utils/stopAllWorkers";
 
 const propTypes = {
   isSelf: PropTypes.bool.isRequired,
