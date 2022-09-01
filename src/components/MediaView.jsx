@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Button, Dropdown, Form, Image } from "react-bootstrap";
 import config from "../config";
 import useAppContext from "../hooks/useAppContext";
+import useMediaContext from "../hooks/useMediaContext";
 import useContent from "../hooks/useContent";
 import { getComments } from "../services/commentService";
 import { patchFile } from "../services/mediaService";
@@ -20,6 +21,7 @@ const propTypes = {
 
 export default function MediaView({ owner, file, setFile }) {
   const { isSelf, showAlert, setAlertChild, alert } = useAppContext();
+  const { refreshMedia } = useMediaContext();
   const {
     textRef,
     showMore,
@@ -61,8 +63,9 @@ export default function MediaView({ owner, file, setFile }) {
   ), [comments]);
 
   const onBlurCaption = async () => {
-    const { tag, caption } = file;
-    await patchFile(owner._id, file._id, { caption, tag });
+    const { tag } = file;
+    await patchFile(owner._id, file._id, { caption: text, tag });
+    refreshMedia(owner._id);
     setTextDisabled(true);
   };
 
