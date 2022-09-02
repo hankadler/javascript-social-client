@@ -70,7 +70,7 @@ function CommentCard({ ownerId, comments, setComments, fileId, postId, commentId
   }, [comments]);
 
   const onClickAvatar = async () => {
-    navigate(selfId === ownerId ? "/home/about" : `/people/${ownerId}/about`);
+    navigate(selfId === author._id ? "/home/about" : `/people/${author._id}/about`);
   };
 
   const onBlurText = async () => {
